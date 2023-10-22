@@ -1,3 +1,6 @@
+<?php 
+session_start();    
+?>
 <!doctype html>
 <html lang="pt-br">
   <head>
@@ -35,18 +38,17 @@
             <a class="nav-link" href="?page=sobre-nos">Sobre nós</a>
           </li>
         </ul>
-      <form class="d-flex" action="?page=pesquisa" method="post" role="search"> 
-        <input class="form-control me-2" type="search" name="pesquisa" placeholder="Pesquisar" aria-label="Search">
+      <form class="d-flex" role="search"> 
+        <input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Pesquisar</button>
-        <button class="btn btn-outline-success botao_login" type=""> <a href="?page=login" class="button_login">Login</a></button>
-        <button class="btn btn-outline-success" type=""> <a href="?page=registro" class="button_login">Cadastro</a></button>
+        <button class="btn btn-outline-success botao_login" type=""> <a href="pefil do usuário" class="button_login"><?php print $_SESSION['nome']; ?></a></button>
+        <button class="btn btn-outline-success btn-outline-danger" type=""> <a href="logout.php" class="button_login">Sair</a></button>
       </form>
     </div>
   </div>
 </nav>
 <div class="container_page_complet">
       <?php
-          session_start();    
           include "css.php";
           include('conexao.php');
           
@@ -75,12 +77,9 @@
             case "login-back":
                 include ("login-backoffice.php");
                 break;
-            case "pesquisa":
-                include ("pesquisa.php");
-                break;
             case "pacote";
                 include ("pacote.php");
-                break;
+                break;                
                
             default:
             include ("principal.php");
