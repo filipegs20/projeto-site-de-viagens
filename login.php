@@ -18,7 +18,13 @@ if(strlen($_POST['email'])==0){
 
     $usuario = $sql_query->fetch_assoc();
 
-    if (password_verify($senha, $usuario['senha'])) {
+    $senhaBD = $usuario['senha'];
+
+    var_dump($senhaBD);
+    var_dump($senha);
+    die;
+    
+    if (password_verify($senha, $senhaBD)) {
 
         if(!isset($_SESSION)){
             session_start();    

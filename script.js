@@ -42,8 +42,8 @@ txtCep.addEventListener('focusout', async() =>{
 
     //essa função baixo é para confirmação de senha //
     function validatePassword() {
-        var password = document.getElementById("senha").value;
-        var confirmPassword = document.getElementById("confirmarSenha").value;
+        var password = document.querySelector("#senha").value;
+        var confirmPassword = document.querySelector("#confirmarSenha").value;
 
         if (password !== confirmPassword) {
             alert("As senhas não coincidem. Por favor, tente novamente.");

@@ -88,7 +88,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="confirmarSenha" class="format-login-registro">Confirme sua senha:</label><br>
-                                <input type="password" name="senha" id="confirmarSenha" class="form-control border_senhas">
+                                <input type="password" name="senha" id="confirmarSenha" class="form-control border_senhas" onclick="validatePassword()">
                             </div>
 
                             
