@@ -1,7 +1,7 @@
 
 
 <?php 
-include('conexao.php');
+//include('conexao.php');
 
 switch ($_REQUEST["acao"]) {
 
@@ -20,6 +20,15 @@ case 'cadastrar':
     $complemento = $_POST["complemento"];
     $data_cadastro = date('Y-m-d');
     
+    $sql_verifica_email = "SELECT * FROM clientes WHERE email = '{$email}'";
+    $res_verifica_email = $mysqli->query($sql_verifica_email);
+
+    if ($res_verifica_email->num_rows > 0) {
+    // validacao de email
+    print "<script> alert('E-mail já cadastrado. Por favor, escolha outro e-mail.');</script>";
+    print "<script> location.href='?page=registro';</script>";
+    }else{
+
     $sql = "INSERT INTO clientes (nome, sobrenome, telefone_fixo, telefone_celular, email, cep, endereco, cidade, estado, 
     pais, complemento, data_cadastro, senha) VALUES ('{$nome}','{$sobrenome}','{$tel_fixo}','{$tel_celular}','{$email}'
     ,'{$cep}','{$endereco}','{$cidade}','{$estado}','{$pais}','{$complemento}','{$data_cadastro}','{$senha}')";
@@ -34,7 +43,7 @@ case 'cadastrar':
         print "<script> alert('Não foi possível cadastrar');</script>";
         print "<script> location.href='?page=registro';</script>";
 
-    }
+    }}
 
     break;
 

@@ -80,7 +80,10 @@ session_start();
             case "pacote";
                 include ("pacote.php");
                 break;                
-               
+            case "pagamento":
+              include ("pagamento.php");
+              break;
+                 
             default:
             include ("principal.php");
           }

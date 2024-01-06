@@ -4,7 +4,7 @@
             <div id="login-row" class="row justify-content-center align-items-center">
                 <div id="login-column" class="col-md-6">
                     <div id="login-box" class="col-md-12">
-                        <form id="login-form" class="form" action="?page=salvar" method="post">
+                        <form id="login-form" class="form" action="?page=salvar" method="post" onsubmit="return validatePassword()">
 
                             <input type="hidden" name="acao" value="cadastrar">
 
@@ -88,7 +88,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="confirmarSenha" class="format-login-registro">Confirme sua senha:</label><br>
-                                <input type="password" name="senha" id="confirmarSenha" class="form-control border_senhas" onclick="validatePassword()">
+                                <input type="password" name="senha" id="confirmarSenha" class="form-control border_senhas">
                             </div>
 
                             

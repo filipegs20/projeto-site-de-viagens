@@ -6,7 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {    //if(isset($_POST['email']) || i
 if(strlen($_POST['email'])==0){
         echo "Preencha seu email";
 } elseif (strlen($_POST['senha'])==0) {       //(strlen($_POST['senha'])==0)//
-        echo "Preencha seu email";
+        echo "Preencha sua senha";
 
 } else {
 
@@ -15,61 +15,31 @@ if(strlen($_POST['email'])==0){
 
     $sql_code = "SELECT * from clientes WHERE email = '$email'";
     $sql_query = $mysqli->query($sql_code) or die("falha na execução do código sql: ".$mysql->error);
-
-    $usuario = $sql_query->fetch_assoc();
-
-    $senhaBD = $usuario['senha'];
-
-    var_dump($senhaBD);
-    var_dump($senha);
-    die;
     
-    if (password_verify($senha, $senhaBD)) {
-
-        if(!isset($_SESSION)){
-            session_start();    
-        }
-
-        $_SESSION['id'] =  $usuario["id"];
-        $_SESSION['nome'] =  $usuario["nome"];
-
-        print "<script> location.href='index-logado.php';</script>";
-
-    
-    } else {
-        echo "<script> alert('Falha ao realizar login. E-mail ou senha incorretos');</script>";
-        echo "<script> location.href='?page=login';</script>";
-        }
-
-    //$sql_code = "SELECT * from clientes WHERE email = '$email'";
-    //$sql_query = $mysqli->query($sql_code) or die("falha na execução do código sql: ".$mysql->error);
-    //$resgate = $sql_query->fetch_assoc();
-    //if (password_verify($senha, $resgate['senha'])){
-    
-    
-    /*$sql_code = "SELECT * from clientes WHERE email = '$email' AND senha = '$senha'";
-    $sql_query = $mysqli->query($sql_code) or die("falha na execução do código sql: ".$mysql->error);
-
-    $quantidade = $sql_query->num_rows;
-    
-    if ($quantidade == 1) {
-
+    if ($sql_query->num_rows == 0) {
+        print "<script> alert('Falha ao realizar login. E-mail ou senha incorretos');</script>";
+    }else{
+        
         $usuario = $sql_query->fetch_assoc();
-
-        if(!isset($_SESSION)){
-            session_start();    
-        }
-
-        $_SESSION['id'] =  $usuario["id"];
-        $_SESSION['nome'] =  $usuario["nome"];
-
-        print "<script> location.href='index-logado.php';</script>";
-
+        $senhaBD = $usuario['senha'];
     
-    } else {
-        echo "<script> alert('Falha ao realizar login. E-mail ou senha incorretos');</script>";
-        echo "<script> location.href='?page=login';</script>";
-        }*/
+        if (password_verify($senha, $senhaBD)) {
+
+            if(!isset($_SESSION)){
+                session_start();    
+            }
+
+            $_SESSION['id'] =  $usuario["id"];
+            $_SESSION['nome'] =  $usuario["nome"];
+
+            print "<script> location.href='index-logado.php';</script>";
+
+        
+        }else{
+            echo "<script> alert('Falha ao realizar login. E-mail ou senha incorretos 2');</script>";
+            echo "<script> location.href='?page=login';</script>";
+            }
+    }
 }
 }
 ?>

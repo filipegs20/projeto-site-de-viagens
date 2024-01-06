@@ -27,11 +27,13 @@
     $result2 = number_format($result1, 2, ',', '.');
     $result3 = number_format($data['preco'], 2, ',', '.');
 
+    $_SESSION['preco-com-desconto'] = $result2;
+
     print '
         
         <div class="col-md-4">
             <div class="card">
-                <a class="link_cards" href="?page=pacote&id=' . $data['id'] . ';">
+                <a class="link_cards" href="?page=pacote&id=' . $data['id'] . '">
                 <img src="' . $data['imagem'] . '" class="card-img-top tamanho_cards" alt="...">
                 </a>
                     <div class="card-body">
@@ -65,7 +67,7 @@
         
         <div class="col-md-4">
             <div class="card">
-                <a class="link_cards" href="?page=pacote&id=' . $data['id'] . ';">
+                <a class="link_cards" href="?page=pacote&id=' . $data['id'] . '">
                 <img src="' . $data['imagem'] . '" class="card-img-top tamanho_cards" alt="...">
                 </a>
                     <div class="card-body">

@@ -7,15 +7,15 @@ session_start();
     unset($_SESSION['senha']);
     print "<script> location.href='?page=login';</script>";
 }*/
-if(!isset($_SESSION)){
+/*if(!isset($_SESSION)){
     session_start();
 }
 
 if (!isset($_SESSION['id'])){
 
     header('Location: index.php?page=login');       // esse if é a função de protect, o usuário só poderá acessar se estiver logado
-}
-
+}*/
+include("protect.php");
 
 $logado = $_SESSION['nome'];
 

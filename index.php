@@ -20,7 +20,7 @@
       <a class="navbar-brand" href="?page=default">FGS Trip</a>
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="?page=default">Home</a>
+            <a class="nav-link active" aria-current="page" href="?page=default">Inicio</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="?page=pacotes">Pacotes</a>
@@ -80,6 +80,9 @@
                 break;
             case "pacote";
                 include ("pacote.php");
+                break;
+            case "pagamento":
+                include ("pagamento.php");
                 break;
                
             default:

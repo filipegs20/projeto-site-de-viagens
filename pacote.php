@@ -10,11 +10,10 @@ $cards[] = $row;
 foreach($cards as $data);
 
 if($data['desconto'] > 0) {                                     //nessa estrutura logica estou adicionando a promocao aos pacotes que tem promocao
-  $calc = $data['desconto'] * $data['preco'] / 100;
-  $result1 = $data['preco'] - $calc; 
-  $result2 = number_format($result1, 2, ',', '.');
-  $result3 = number_format($data['preco'], 2, ',', '.');
 
+  $result2 = $_SESSION['preco-com-desconto'];
+  $result3 = number_format($data['preco'], 2, ',', '.');
+  
 }else{  
   $result3 = number_format($data['preco'], 2, ',', '.');
 }
@@ -63,10 +62,21 @@ print '<img src="'.$data['imagem'].'" class="img-thumbnail" alt="...">';
       </ul>
 </div>
 
-<div class="d-grid gap-2 col-2 mx-auto">
-  <button class="btn btn-danger" type="button">Comprar</button>
-</div>
+<?php 
 
+if (!isset($_SESSION['id'])){
+
+  print "<div class='d-grid gap-2 col-2 mx-auto'>
+          <a href='?page=login'><button class='btn btn-danger' type='button'>Comprar</button></a>
+          </div>";
+}else{
+  print "<div class='d-grid gap-2 col-2 mx-auto'>
+          <a href='?page=pagamento&id=" . $data['id'] . "'><button class='btn btn-danger' type='button'>Comprar</button></a>
+          </div>";
+}
+
+
+?>
 <!-- <ul class="list-unstyled">
   <li>O pacote oferece dias de viagem</li>
   <li></li>

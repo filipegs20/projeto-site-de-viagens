@@ -10,7 +10,7 @@
 
         die("<div class='containerprotect'>
                 <div class='messageprotect'>
-                <b>Você não pode acessar essa página</b>
+                <b>Você não pode acessar esta página</b>
                 </div>
                     <a href=\"index.php\" class='buttonprotect'>Entrar</a>
                 </div>");
