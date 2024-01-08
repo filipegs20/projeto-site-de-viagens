@@ -24,9 +24,36 @@ if($data['desconto'] > 0) {                                     //nessa estrutur
 <h4><?php print $data['data_viagem']; ?></h4>
 </div>
 
-<?php
-print '<img src="'.$data['imagem'].'" class="img-thumbnail" alt="...">';
-?>
+<div style="width: 95%; margin:auto">
+<div id="carouselExampleCaptions" class="carousel slide" style="max-height: 450px; overflow: hidden;">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+        aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <?php
+    print '<div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="' . $data['imagem'] . '"
+              class="d-block w-100 mx-auto img-fluid" style="height: 400px; object-fit: contain;" alt="...">
+              <div class="carousel-caption d-none d-md-block">
+                <h5>Legenda do primeiro slide</h5>
+                <p>Algum conteúdo representativo para o primeiro slide.</p>
+              </div>
+            </div>
+          </div>';
+    ?>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Anterior</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Próximo</span>
+    </button>
+  </div>
+</div>  
 
       <div class="descricao-pacote">
         <h6> <?php print $data['descricao'] ?> </h6>
