@@ -9,7 +9,6 @@
   </head>
   <body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-    
 
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
@@ -36,11 +35,11 @@
           </li>
         </ul>
       <form class="d-flex" action="?page=pesquisa" method="post" role="search"> 
-        <input class="form-control me-2" type="search" name="pesquisa" placeholder="Pesquisar" aria-label="Search">
+        <input class="form-control me-2" type="search" name="pesquisa" placeholder="Pesquisar" aria-label="Search" required>
         <button class="btn btn-outline-success" type="submit">Pesquisar</button>
+      </form> 
         <button class="btn btn-outline-success botao_login" type=""> <a href="?page=login" class="button_login">Login</a></button>
         <button class="btn btn-outline-success" type=""> <a href="?page=registro" class="button_login">Cadastro</a></button>
-      </form>
     </div>
   </div>
 </nav>

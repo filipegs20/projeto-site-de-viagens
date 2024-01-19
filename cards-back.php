@@ -23,9 +23,10 @@
         //);
 
     
-    //imprimindo arrays
+    //imprimindo cards
     foreach ($cards as $data) {
 
+    //card
     print '
         
         <div class="col-md-4">
@@ -60,16 +61,7 @@
         </div>';
     }
 
-    
-    //OBS: Colocar tag <a> envolto ao botao para que o click funcione.
-    // <a href="?page=editar&id='.$data['id'].'">
-    // </a>
-    
-    //switch ($_REQUEST['page']){
-    //    case 'editar':
-    //        include ('form-edit-card.php');
-    //        break;
-    //} //onclick=\"location.href="?page=editar&id='.$data['id'].'";\"
+
 ?>  
 <script src="modal.js"></script>
 </div>

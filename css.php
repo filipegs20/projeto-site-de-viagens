@@ -292,4 +292,16 @@ button:active {
             margin-bottom: 70px;
         }
         
+        .carousel-control-next-icon {
+            filter: invert(100%); /* Inverte as cores, tornando o ícone preto (bootstrap)*/
+        }
+
+        .carousel-control-prev-icon {
+            filter: invert(100%); /* Inverte as cores, tornando o ícone preto (bootstrap)*/
+        }
+
+        .body-background {
+            background-color: rgb(169,169,169) /* cor de fundo do backoffice */
+        } 
+
 </style>

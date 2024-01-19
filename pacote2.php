@@ -33,19 +33,14 @@ if($data['desconto'] > 0) {                                     //nessa estrutur
       <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
     </div>
     <?php
-  //organizando imagens no array para exibi-las no carrosel
-  $imagensarray = explode(',', $data['imagem']);  
-  
-  foreach($imagensarray as $carrosel){
     print '<div class="carousel-inner">
             <div class="carousel-item active">
-              <img src="' . $carrosel . '"
+              <img src="' . $data['imagem'] . '"
               class="d-block w-100 mx-auto img-fluid" style="height: 400px; object-fit: contain;" alt="...">
               <div class="carousel-caption d-none d-md-block">
               </div>
             </div>
           </div>';
-  }
     ?>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
