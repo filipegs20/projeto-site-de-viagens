@@ -120,12 +120,16 @@ $imagensarray = explode(',', $data['imagem']);
 
 if (!isset($_SESSION['id'])){
 
-  print "<div class='d-grid gap-2 col-1 mx-auto'>
-          <a href='?page=login'><button class='btn btn-danger' type='button'>Comprar</button></a>
+  print "<div class='text-center'>
+            <a href='?page=login'>
+              <button class='btn btn-danger' type='button'>Comprar</button>
+            </a>
           </div>";
 }else{
-  print "<div class='d-grid gap-2 col-1 mx-auto'>
-          <a href='?page=pagamento&id=" . $data['id'] . "'><button class='btn btn-danger' type='button'>Comprar</button></a>
+  print "<div class='text-center'>
+            <a href='?page=pagamento&id=" . $data['id'] . "'>
+              <button class='btn btn-danger' type='button'>Comprar</button>
+            </a>
           </div>";
 }
 
