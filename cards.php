@@ -22,8 +22,12 @@
 
     foreach ($cards as $data) {
     
+    //gerando explode nos links do campo imagem para poder selecionar a imagem de capa, que sera a primeira imagem (por padrao).
+    $imagem_de_capa = explode(',',$data['imagem']); 
+    
+    //tratando os pacotes com desconto ou nao.
     if($data['desconto'] > 0) {
-
+    
     //$valorDecimalComPonto = str_replace(',', '.', $data['preco']);
     //$preco = (float)$valorDecimalComPonto;    
     $calc = $data['desconto'] * $data['preco'] / 100;
@@ -38,7 +42,7 @@
         <div class="col-md-4">
             <div class="card">
                 <a class="link_cards" href="?page=pacote&id=' . $data['id'] . '">
-                <img src="' . $data['imagem'] . '" class="card-img-top tamanho_cards" alt="...">
+                <img src="' . $imagem_de_capa[0] . '" class="card-img-top tamanho_cards" alt="...">
                 </a>
                     <div class="card-body">
                         <h5 class="card-title">' . $data['nome_pacote'] . '</h5>
@@ -72,7 +76,7 @@
         <div class="col-md-4">
             <div class="card">
                 <a class="link_cards" href="?page=pacote&id=' . $data['id'] . '">
-                <img src="' . $data['imagem'] . '" class="card-img-top tamanho_cards" alt="...">
+                <img src="' . $imagem_de_capa[0] . '" class="card-img-top tamanho_cards" alt="...">
                 </a>
                     <div class="card-body">
                         <h5 class="card-title">' . $data['nome_pacote'] . '</h5>

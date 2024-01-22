@@ -32,7 +32,7 @@ if(strlen($_POST['email'])==0){
             $_SESSION['id'] =  $usuario["id"];
             $_SESSION['nome'] =  $usuario["nome"];
 
-            print "<script> location.href='index-logado.php';</script>";
+            print "<script> location.href='index.php';</script>";
 
         
         }else{

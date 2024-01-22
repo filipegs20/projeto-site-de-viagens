@@ -24,39 +24,63 @@ if($data['desconto'] > 0) {                                     //nessa estrutur
 <h4><?php print $data['data_viagem']; ?></h4>
 </div>
 
+<?php 
+$imagensarray = explode(',', $data['imagem']);  
+
+?>
+
+<!-------------------------------------------- carrosel --------------------------------------------------->
 <div style="width: 95%; margin:auto">
-<div id="carouselExampleCaptions" class="carousel slide" style="max-height: 450px; overflow: hidden;">
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
-        aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    <div id="carouselExampleCaptions" class="carousel slide" style="max-height: 450px; overflow: hidden;">
+        <div class="carousel-indicators">
+            <?php
+            // Contador para atribuir o indice aos botoes
+            $i = 0;
+
+            foreach ($imagensarray as $carrosel) {
+                // Adiciona a classe "active" apenas ao primeiro botão
+                $activeClass = ($i === 0) ? 'active' : '';
+                
+                // Imprime o botão indicador
+                print '<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="' . $i . '" class="' . $activeClass . '" aria-label="Slide ' . ($i + 1) . '"></button>';
+                
+                $i++;
+            }
+            ?>
+        </div>
+
+        <div class="carousel-inner">
+            <?php
+            // Reiniciando o contador para atribuir a classe "active" apenas ao primeiro slide
+            $i = 0;
+
+            foreach ($imagensarray as $carrosel) {
+                // Adiciona a classe "active" apenas ao primeiro slide
+                $activeClass = ($i === 0) ? 'active' : '';
+                ?>
+                <div class="carousel-item <?php print $activeClass; ?>">
+                    <img src="<?php print $carrosel; ?>"
+                         class="d-block w-100 mx-auto img-fluid" style="height: 400px; object-fit: contain;" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                    </div>
+                </div>
+                <?php
+                $i++;
+            }
+            ?>
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Próximo</span>
+        </button>
     </div>
-    <?php
-  //organizando imagens no array para exibi-las no carrosel
-  $imagensarray = explode(',', $data['imagem']);  
-  
-  foreach($imagensarray as $carrosel){
-    print '<div class="carousel-inner">
-            <div class="carousel-item active">
-              <img src="' . $carrosel . '"
-              class="d-block w-100 mx-auto img-fluid" style="height: 400px; object-fit: contain;" alt="...">
-              <div class="carousel-caption d-none d-md-block">
-              </div>
-            </div>
-          </div>';
-  }
-    ?>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Anterior</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Próximo</span>
-    </button>
-  </div>
-</div>  
+</div>
+
 
       <div class="descricao-pacote">
         <h6> <?php print $data['descricao'] ?> </h6>
@@ -96,11 +120,11 @@ if($data['desconto'] > 0) {                                     //nessa estrutur
 
 if (!isset($_SESSION['id'])){
 
-  print "<div class='d-grid gap-2 col-2 mx-auto'>
+  print "<div class='d-grid gap-2 col-1 mx-auto'>
           <a href='?page=login'><button class='btn btn-danger' type='button'>Comprar</button></a>
           </div>";
 }else{
-  print "<div class='d-grid gap-2 col-2 mx-auto'>
+  print "<div class='d-grid gap-2 col-1 mx-auto'>
           <a href='?page=pagamento&id=" . $data['id'] . "'><button class='btn btn-danger' type='button'>Comprar</button></a>
           </div>";
 }

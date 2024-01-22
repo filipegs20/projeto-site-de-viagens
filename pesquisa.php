@@ -1,3 +1,4 @@
+<div class="row row-cols-1 row-cols-md-2 g-4 ">
 <?php
 
 //include('conexao.php');
@@ -54,7 +55,7 @@ $sql_query = $mysqli->query($sql) or die("falha na execução do código sql: ".
                 </div>
             
             </div>'; 
-            }}else{} 
+            }}else{ 
             
             foreach ($cards as $data) {
 
@@ -91,5 +92,6 @@ $sql_query = $mysqli->query($sql) or die("falha na execução do código sql: ".
                             </div>
                         </div>
                     
-                    </div>';}
+                    </div>';}}
 ?>
+</div>

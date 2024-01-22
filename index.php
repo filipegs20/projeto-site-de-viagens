@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!doctype html>
 <html lang="pt-br">
   <head>
@@ -38,14 +39,25 @@
         <input class="form-control me-2" type="search" name="pesquisa" placeholder="Pesquisar" aria-label="Search" required>
         <button class="btn btn-outline-success" type="submit">Pesquisar</button>
       </form> 
-        <button class="btn btn-outline-success botao_login" type=""> <a href="?page=login" class="button_login">Login</a></button>
-        <button class="btn btn-outline-success" type=""> <a href="?page=registro" class="button_login">Cadastro</a></button>
+        
+      
+      <?php 
+      //mudanca de layout para usuario logado
+      if(!isset($_SESSION)){
+        print     "<button class='btn btn-outline-success botao_login' type=''> <a href='pefil do usuário' class='button_login'><?php print" . $_SESSION['nome'] . "?></a></button>
+                  <button class='btn btn-outline-success btn-outline-danger' type=''> <a href='logout.php' class='button_login'>Sair</a></button>";
+        }else{
+        print     "<button class='btn btn-outline-success botao_login' type=''> <a href='?page=login' class='button_login'>Login</a></button>
+                  <button class='btn btn-outline-success' type=''> <a href='?page=registro' class='button_login'>Cadastro</a></button>";
+        }
+      ?>
+
+        
     </div>
   </div>
 </nav>
 <div class="container_page_complet">
       <?php
-          session_start();    
           include "css.php";
           include('conexao.php');
           
