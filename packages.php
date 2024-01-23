@@ -2,7 +2,7 @@
 <script src="script-form-cards.js"></script>
 
 <div class="div-sup-backoffice espaco-no-bottom">
-    <button class="btn btn-outline-success buttom_registro_login" id="botao-open" onclick="openModal()">Criar</button>
+    <button class="btn btn-outline-success buttom_registro_login" id="botao-open" onclick="openModal()"><b>Criar</b></button>
 </div>
 
 <?php
@@ -78,22 +78,22 @@ include('cards-back.php');
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if(!isset($_POST['nome'])) {
-        print "<script> alert('Preencha o nome do pacote');</script>";
+        print "<script> alert('Preencha o nome do pacote!');</script>";
         die;
     } if(!isset($_POST['dias'])){
-        print "<script> alert('Preencha o nome do pacote');</script>";
+        print "<script> alert('Preencha a quantidade de dias!');</script>";
         die;
     } elseif (!isset($_POST['preco'])) {       //(strlen($_POST['senha'])==0)//
-        print "<script> alert('Preencha o nome do pacote');</script>";
+        print "<script> alert('Preencha o preço!');</script>";
         die;
     } elseif (!isset($_POST['descricao'])){
-        print "<script> alert('Preencha o nome do pacote');</script>";
+        print "<script> alert('Preencha o campo descrição!');</script>";
         die;
     } elseif (!isset($_POST['dataviagem'])){
-        print "<script> alert('Preencha a data da viagem');</script>";
+        print "<script> alert('Preencha a data da viagem!');</script>";
         die;
     } elseif (!isset($_POST['oferece'])){
-        print "<script> alert('Preencha o que o pacote oferece');</script>";
+        print "<script> alert('Preencha o que o pacote oferece!');</script>";
         die;
 
     } else {
