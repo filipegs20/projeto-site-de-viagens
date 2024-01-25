@@ -31,7 +31,9 @@ $logado = $_SESSION['nome'];
   <a class="nav-link btn  botoes-nav-operador" aria-current="page" href="?page=dashboard">Dashboard</a>
   <a class="nav-link btn  botoes-nav-operador" href="?page=packages">Pacotes</a>
   <a class="nav-link btn  botoes-nav-operador" href="?page=site">Site</a>
+  <a class="nav-link  botoes-nav-operador" href="?page=usuarios">Usuários</a>
   <a class="nav-link  botoes-nav-operador" href="?page=outros">Outros</a>
+
 </nav>
 
 <div class="container_page_complet">
@@ -52,8 +54,14 @@ $logado = $_SESSION['nome'];
             case "editar":
                 include ("form-edit-card.php");
                 break;
+            case "usuarios":
+                include ("usuarios.php");
+                break;
             case "outros":
                 include ("outros.php");
+                break;
+            case "editar-usuarios":
+                include ("editar-usuarios.php");
                 break;
             default:
                 include ("dashboard.php");

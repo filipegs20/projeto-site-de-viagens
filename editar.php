@@ -2,6 +2,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 <script src="script-form-cards.js"></script>
+<script src="script.js"></script>
 <style>body{background-color: rgb(169,169,169)}</style>
 
 <?php
@@ -34,7 +35,7 @@ include('css.php');
 
                                             <div class="d-flex justify-content-end">
                                             
-                                            <button class="btn-close ms-auto" aria-label="Close" id="close2" onclick="window.history.back();"></button>
+                                            <button class="btn-close ms-auto" aria-label="Close" id="close2" onclick="goBack()"></button>
                                                 
                                             </div>
 

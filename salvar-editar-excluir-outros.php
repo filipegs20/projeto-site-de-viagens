@@ -5,16 +5,28 @@ switch ($_REQUEST["acao"]) {
     case 'cadastrar': 
 
         if(!isset($_POST['nome'])) {
-            print "<script> alert('Preencha o campo nome!');</script>";
-            header("Location: {$_SERVER['HTTP_REFERER']}");        
+            print "<script>
+                        alert('Preencha o campo nome!');
+                        setTimeout(function() {
+                        window.location.href = '{$_SERVER['HTTP_REFERER']}';
+                        }, 1000); // 1000 milissegundos = 1 segundo
+                    </script>";
             die;
         } if(!isset($_POST['email'])){
-            print "<script> alert('Preencha o campo email!');</script>";
-            header("Location: {$_SERVER['HTTP_REFERER']}");        
+            print "<script>
+                        alert('Preencha o campo email!');
+                        setTimeout(function() {
+                        window.location.href = '{$_SERVER['HTTP_REFERER']}';
+                        }, 1000); // 1000 milissegundos = 1 segundo
+                    </script>";
             die;
         } elseif (!isset($_POST['senha'])) {
-            print "<script> alert('Preencha o campo senha!');</script>";
-            header("Location: {$_SERVER['HTTP_REFERER']}");        
+            print "<script>
+                        alert('Preencha o campo senha!');
+                        setTimeout(function() {
+                        window.location.href = '{$_SERVER['HTTP_REFERER']}';
+                        }, 1000); // 1000 milissegundos = 1 segundo
+                    </script>";
             die;
         } else {
 
@@ -56,13 +68,20 @@ switch ($_REQUEST["acao"]) {
         $res = $mysqli->query($sql);
 
         if($res==true){
-            print "<script> alert('Alterado com sucesso!');</script>";
-            print "<script> location.href='?page=outros';</script>";
+            print "<script>
+                        alert('Alterado com sucesso!');
+                        setTimeout(function() {
+                        window.location.href = '{$_SERVER['HTTP_REFERER']}';
+                        }, 1000); // 1000 milissegundos = 1 segundo
+                    </script>";
         }
         else{
-            print "<script> alert('Não foi possível alterar');</script>";
-            print "<script> location.href='?page=outros';</script>";
-
+            print "<script>
+                        alert('Não foi possível alterar o usuário');
+                        setTimeout(function() {
+                        window.location.href = '{$_SERVER['HTTP_REFERER']}';
+                        }, 1000); // 1000 milissegundos = 1 segundo
+                    </script>";
         }
 
         break;

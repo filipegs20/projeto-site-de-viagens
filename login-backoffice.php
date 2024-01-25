@@ -18,21 +18,25 @@ if(strlen($_POST['email'])==0){
     //$resgate = $sql_query->fetch_assoc();
     //if (password_verify($senha, $resgate['senha'])){
 
-    $sql_code = "SELECT * from sistema WHERE email = '$email' AND senha = '$senha'";
+    $sql_code = "SELECT * from sistema WHERE email = '$email'";
     $sql_query = $mysqli->query($sql_code) or die("falha na execução do código sql: ".$mysql->error);
-
-    $quantidade = $sql_query->num_rows;
-
-    if ($quantidade == 1) {
-
+        
+    if ($sql_query->num_rows == 0) {
+        print "<script> alert('Falha ao realizar login. E-mail ou senha incorretos');</script>";
+    }else{
+            
         $usuario = $sql_query->fetch_assoc();
-
-        if(!isset($_SESSION)){
-            session_start();    
-        }
-
-        $_SESSION['id'] =  $usuario["id"];
-        $_SESSION['nome'] =  $usuario["nome"];
+        $senhaBD = $usuario['senha'];
+        
+        if (password_verify($senha, $senhaBD)) {
+    
+            if(!isset($_SESSION)){
+                session_start();    
+            }
+    
+            $_SESSION['id'] =  $usuario["id"];
+            $_SESSION['nome'] =  $usuario["nome"];
+    
 
         print "<script> location.href='backoffice.php';</script>";
 
@@ -41,6 +45,7 @@ if(strlen($_POST['email'])==0){
         echo "<script> alert('Falha ao realizar login. E-mail ou senha incorretos');</script>";
         echo "<script> location.href='?page=login-back';</script>";
         }
+}
 }
 }
 ?>

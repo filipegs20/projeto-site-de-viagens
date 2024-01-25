@@ -52,5 +52,9 @@ txtCep.addEventListener('focusout', async() =>{
         return true;
     }
 
+    function goBack() {
+    window.history.back();
+    }
+
     
     
