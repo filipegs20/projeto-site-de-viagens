@@ -43,14 +43,21 @@
       
       <?php 
       //mudanca de layout para usuario logado
-      if(!isset($_SESSION)){
-        print     "<button class='btn btn-outline-success botao_login' type=''> <a href='pefil do usuário' class='button_login'><?php print" . $_SESSION['nome'] . "?></a></button>
-                  <button class='btn btn-outline-success btn-outline-danger' type=''> <a href='logout.php' class='button_login'>Sair</a></button>";
-        }else{
-        print     "<button class='btn btn-outline-success botao_login' type=''> <a href='?page=login' class='button_login'>Login</a></button>
-                  <button class='btn btn-outline-success' type=''> <a href='?page=registro' class='button_login'>Cadastro</a></button>";
-        }
-      ?>
+      if(isset($_SESSION['nome'])) { ?>
+        <button class='btn btn-outline-success botao_login' type=''>
+            <a href='pefil do usuário' class='button_login'><?php echo $_SESSION['nome']; ?></a>
+        </button>
+        <button class='btn btn-outline-success btn-outline-danger' type=''>
+            <a href='logout.php' class='button_login'>Sair</a>
+        </button>
+      <?php } else { ?>
+        <button class='btn btn-outline-success botao_login' type=''>
+            <a href='?page=login' class='button_login'>Login</a>
+        </button>
+        <button class='btn btn-outline-success' type=''>
+            <a href='?page=registro' class='button_login'>Cadastro</a>
+        </button>
+        <?php } ?>
 
         
     </div>

@@ -4,44 +4,88 @@
 	<h1 class="">Viage com a gente</h1>
 </div>
 
-<div>
-	<p class="borda">Viage para o Rio de Janeiro</p>
+<?php 
+$sql_code = "SELECT * from pacotes";    
+    
+$sql_query = $mysqli->query($sql_code) or die("falha na execução do código sql: ".$mysql->error);
+
+//o while abaixo serve para percorrer todas as linhas do BD e imprimi-las logo depois. 
+// Adicionando cada registro ao array $cards 
+while ($row = $sql_query->fetch_assoc()) {
+    $cards[] = $row; 
+}
+foreach ($cards as $data) {
+    
+  //gerando explode nos links do campo imagem para poder selecionar a imagem de capa, que sera a primeira imagem (por padrao).
+  $imagem_de_capa = explode(',',$data['imagem']); 
+  
+  //tratando os pacotes com desconto ou nao.
+  if($data['desconto'] > 0) {
+  
+  //$valorDecimalComPonto = str_replace(',', '.', $data['preco']);
+  //$preco = (float)$valorDecimalComPonto;    
+  $calc = $data['desconto'] * $data['preco'] / 100;
+  $result1 = $data['preco'] - $calc; 
+  $result2 = number_format($result1, 2, ',', '.');
+  $result3 = number_format($data['preco'], 2, ',', '.');
+
+  }
+  $imagensarray = explode(',', $data['imagem']);
+?>
+
+<!-------------------------------------------- carrosel --------------------------------------------------->
+<div style="width: 95%; margin:auto">
+    <div id="carouselExampleCaptions" class="carousel slide" style="max-height: 450px; overflow: hidden;">
+        <div class="carousel-indicators">
+            <?php
+            // Contador para atribuir o indice aos botoes
+            $i = 0;
+
+            foreach ($imagensarray as $carrosel) {
+                // Adiciona a classe "active" apenas ao primeiro botão
+                $activeClass = ($i === 0) ? 'active' : '';
+                
+                // Imprime o botão indicador
+                print '<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="' . $i . '" class="' . $activeClass . '" aria-label="Slide ' . ($i + 1) . '"></button>';
+                
+                $i++;
+            }
+            ?>
+        </div>
+
+        <div class="carousel-inner">
+            <?php
+            // Reiniciando o contador para atribuir a classe "active" apenas ao primeiro slide
+            $i = 0;
+
+            foreach ($imagensarray as $carrosel) {
+                // Adiciona a classe "active" apenas ao primeiro slide
+                $activeClass = ($i === 0) ? 'active' : '';
+                ?>
+                <div class="carousel-item <?php print $activeClass; ?>">
+                    <img src="<?php print $imagem_de_capa['0']; ?>"
+                         class="d-block w-100 mx-auto img-fluid" style="height: 400px; object-fit: contain;" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                    </div>
+                </div>
+                <?php
+                $i++;
+            }
+            ?>
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Próximo</span>
+        </button>
+    </div>
 </div>
 
-<div>
-    <div class="row row-cols-1 row-cols-md-3 g-4 ">
-    <div class="col-md-4">
-        <div class="card">
-          <a href="#"> 
-            <img src="https://www.viajali.com.br/wp-content/uploads/2018/08/fotos-do-rio-de-janeiro-capa.jpg" class="card-img-top tamanho_cards" alt="..."> 
-          </a>
-        </div>
-    </div>
-    </div>
-</div>
 
-<div>
-    <div class="row justify-content-end">
-    <div class="col-md-4 ml-auto text-right align-items-end">
-        <div class="card">
-          <a href="#"> 
-            <img src="https://www.viajali.com.br/wp-content/uploads/2018/08/fotos-do-rio-de-janeiro-capa.jpg" class="card-img-top tamanho_cards" alt="..."> 
-          </a>
-        </div>
-    </div>
-    </div>
-</div>  
-
-<div>
-    <div class="row row-cols-1 row-cols-md-2 g-4 ">
-    <div class="col-md-4 text-right align-items-end">
-        <div class="card">
-          <a href="#"> 
-            <img src="https://www.viajali.com.br/wp-content/uploads/2018/08/fotos-do-rio-de-janeiro-capa.jpg" class="card-img-top tamanho_cards" alt="..."> 
-          </a>
-        </div>
-    </div>
-    </div>
-</div>  
+<?php }?>
 
 </div>

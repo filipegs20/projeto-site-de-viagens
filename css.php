@@ -304,4 +304,8 @@ button:active {
             background-color: rgb(169,169,169) /* cor de fundo do backoffice */
         } 
 
+        .pesquisa {
+            width: 100%;
+        }
+
 </style>
