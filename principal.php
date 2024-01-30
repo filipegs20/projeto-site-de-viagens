@@ -2,9 +2,13 @@
 <div >
 	<h1 class="">Viage com a gente</h1>
 </div>
+
+<p style="font-size: 20px;">A sua felicidade é a nossa satisfação. Conheça os principais pontos turísticos do Brasil com segurança e conforto.</p>
 <p>&nbsp;</p>
+<p><b>Promoções imperdíveis</b></p>
 
 <div class="row row-cols-1 row-cols-md-4 g-4">
+
 <?php 
 $sql_code = "SELECT * from pacotes";    
     
@@ -16,7 +20,10 @@ while ($row = $sql_query->fetch_assoc()) {
     $cards[] = $row; 
 }
 
-foreach (array_slice($cards, 0, 3) as $data) {
+$indices_desejados = [1, 3, 5];
+
+foreach ($indices_desejados as $indice) {
+    $data = $cards[$indice];
     
     //gerando explode nos links do campo imagem para poder selecionar a imagem de capa, que sera a primeira imagem (por padrao).
     $imagensarray = explode(',', $data['imagem']);
@@ -24,7 +31,7 @@ foreach (array_slice($cards, 0, 3) as $data) {
  ?>
     
 
-      <a href="?page=pacote&id="<?php print $data['id']; ?>>
+      <a class="link_cards" href="?page=pacote&id="<?php print $data['id']; ?>>
         <div class="col">
           <div class="card h-100">
             <img src="<?php print $imagensarray['0'];?>" class="card-img-top" alt="...">
@@ -38,12 +45,10 @@ foreach (array_slice($cards, 0, 3) as $data) {
 
 <?php } ?>
 </div>
-<!-- <div class="card" style="width: 18rem; ">
-    <img src="https://media.istockphoto.com/id/1166728645/pt/foto/suspension-bridge-cable-stayed-bridge-in-the-world.jpg?s=612x612&w=0&k=20&c=_2bO5TdCKNzrSHgaofCvqpQRiwRtNtFOLdeI8WpsMBc=" class="card-img-top" alt="...">
-    <div class="card-body">
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    </div>
-  </div> -->
+<p>&nbsp;</p>
+<div>olá mundo</div>
+
+
 
 </body>
 </html>

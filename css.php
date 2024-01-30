@@ -308,4 +308,7 @@ button:active {
             width: 100%;
         }
 
+        .div-cards-pag-principal {
+            margin-left: auto;
+        }
 </style>
