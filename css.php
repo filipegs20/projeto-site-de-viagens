@@ -308,7 +308,99 @@ button:active {
             width: 100%;
         }
 
-        .div-cards-pag-principal {
-            margin-left: auto;
+        .div-principal-esq-dir {
+        width: 100%;
+        height: 100px;
+        background-color: #198754;
+        border-radius: 40px;
+        padding: 20px 20px 20px 20px;
+        display: flex;
+        justify-content: space-between;
         }
+
+        .div-principal-esq,
+        .div-principal-dir {
+            width: auto; /* Use 48% para deixar algum espaço entre as duas divs */
+            height: auto;
+            background-color: #e9ecef;
+            border-radius: 50px;
+            overflow: hidden;
+            display: flex;
+            margin: 0% 1% 0% 1%;
+            padding: 20px 20px 20px 20px;
+
+        }
+
+        .img-container {
+            width: 50%; /* Ajuste conforme necessário */
+            height: 100%;
+            float: left;
+        }
+
+        .img-principal {
+            width: 50%;
+            height: auto;
+            display: block;
+
+        }
+
+        .letra-div-principal {
+            text-align: right;
+            padding: 5%;
+            height: 100%; /* Garante que o texto ocupe toda a altura da div */
+        }
+
+        .letra-div-principal-pacote {
+            text-align: center;
+            
+            font-size: 15px;
+        }
+        .sub-titulo {
+            width: auto;
+            height: auto;
+            background-color: #e9ecef;
+            border-radius: 40px;
+            padding: 10px 20px 10px 20px;
+            justify-content: space-between;
+        }
+        .letras-sub-titulo{
+            font-size: 110%;
+            text-align: center;
+        }
+        .centralizador {
+            display: flex;
+        }
+        .org-redesocial {
+            display: flex;
+        }
+
+        #tela-de-carregamento {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ffffff; /* Fundo branco */
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    border-top: 4px solid #3498db;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin-bottom: 10px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
 </style>

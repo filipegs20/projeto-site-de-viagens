@@ -82,7 +82,7 @@ $imagensarray = explode(',', $data['imagem']);
 </div>
 
 
-      <div class="descricao-pacote">
+      <div class="descricao-pacote sub-titulo">
         <h6> <?php print $data['descricao'] ?> </h6>
       </div>
       

@@ -32,11 +32,20 @@ if(strlen($_POST['email'])==0){
             $_SESSION['id'] =  $usuario["id"];
             $_SESSION['nome'] =  $usuario["nome"];
 
-            print "<script> location.href='index.php';</script>";
+            
+
+            print "    <div id='tela-de-carregamento'>
+                            <div class='spinner'></div>
+                                <p>Acessando...</p> 
+                        </div>
+            
+                        <script> location.href='?page=principal';</script>";
+
+             
 
         
         }else{
-            echo "<script> alert('Falha ao realizar login. E-mail ou senha incorretos 2');</script>";
+            echo "<script> alert('Falha ao realizar login. E-mail ou senha incorretos.');</script>";
             echo "<script> location.href='?page=login';</script>";
             }
     }

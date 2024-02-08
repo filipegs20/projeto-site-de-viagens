@@ -140,6 +140,15 @@ $result2 = $_SESSION['preco-com-desconto'];
 
 
 </body>
+
+    <!-- Tela de carregamento -->
+    <div id="tela-de-carregamento">
+        <div class="spinner"></div>
+        <p>Validando pagamento...</p> 
+    </div>
+    
+
+<script src="tela-carregamento.js"> </script>
 </html>
 
 
