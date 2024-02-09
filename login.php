@@ -36,7 +36,7 @@ if(strlen($_POST['email'])==0){
 
             print "    <div id='tela-de-carregamento'>
                             <div class='spinner'></div>
-                                <p>Acessando...</p> 
+                                <p><b>Acessando...</b></p> 
                         </div>
             
                         <script> location.href='?page=principal';</script>";
