@@ -22,7 +22,7 @@ $logado = $_SESSION['nome'];
             <h1>Bem-vindo(a) ao Backoffice</h1>
         </div>
         
-        <button class="btn btn-outline-success btn-outline-danger" type=""> <a href="logout.php" class="button_login">Sair</a></button>
+        <button class="btn btn-outline-success btn-outline-danger" type=""> <a href="?page=logout" class="button_login">Sair</a></button>
 
     </div>
     
@@ -62,6 +62,9 @@ $logado = $_SESSION['nome'];
                 break;
             case "editar-usuarios":
                 include ("editar-usuarios.php");
+                break;
+            case "logout":
+                include ("logout-backoffice.php");
                 break;
             default:
                 include ("dashboard.php");

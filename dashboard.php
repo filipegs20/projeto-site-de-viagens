@@ -37,4 +37,12 @@ print '<table class="table table-hover table-bordered">
     </tr>
 </table>:';
 }
+
 ?>
+
+<div id="tela-de-carregamento">
+    <div class='spinner'></div>
+        <p>Acessando Backoffice...</p> 
+    </div>
+    
+    <script src="tela-carregamento.js"></script>

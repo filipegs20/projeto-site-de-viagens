@@ -1,70 +1,71 @@
 <style>
 
-		.corpo {margin:0;
-			padding:0 10% 0 10%;}
+        .corpo {
+        margin:0;
+        padding:0 10% 0 10%;}
 
-    .tamanho_cards {
-              height:210.33px;
-              width:341.73;
-    }
+        .tamanho_cards {
+        height:210.33px;
+        width:341.73;
+        }
 
-    .buttom_cards  {
- border-radius: 50px;
- border: 0;
- background-color: rgb(53, 240, 153);
- box-shadow: rgb(0 0 0 / 5%) 0 0 8px;
- letter-spacing: 1.5px;
- text-transform: uppercase;
- font-size: 15px;
- transition: all .5s ease;
- font-family: Arial, Helvetica, sans-serif;
-}
+        .buttom_cards  {
+        border-radius: 50px;
+        border: 0;
+        background-color: rgb(53, 240, 153);
+        box-shadow: rgb(0 0 0 / 5%) 0 0 8px;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        font-size: 15px;
+        transition: all .5s ease;
+        font-family: Arial, Helvetica, sans-serif;
+        }
 
-button:hover {
- letter-spacing: 3px;
- background-color: rgb (25 135 84);
- color: hsl(152%, 69%, 31%);
- box-shadow: rgb (25 135 84) 0px 7px 29px 0px;
-}
+        button:hover {
+        letter-spacing: 3px;
+        background-color: rgb (25 135 84);
+        color: hsl(152%, 69%, 31%);
+        box-shadow: rgb (25 135 84) 0px 7px 29px 0px;
+        }
 
-button:active {
- letter-spacing: 3px;
- background-color: rgb (25 135 84);
- color: hsl(0, 0%, 100%);
- box-shadow: rgb(93 24 220) 0px 0px 0px 0px;
- transform: translateY(10px);
- transition: 100ms;
-}
+        button:active {
+        letter-spacing: 3px;
+        background-color: rgb (25 135 84);
+        color: hsl(0, 0%, 100%);
+        box-shadow: rgb(93 24 220) 0px 0px 0px 0px;
+        transform: translateY(10px);
+        transition: 100ms;
+        }
 
-.rating {
-    display: inline-block;
-    padding-left: 5%;
-}
+        .rating {
+            display: inline-block;
+            padding-left: 5%;
+        }
 
-.rating input {
-    display: none;
-}
+        .rating input {
+            display: none;
+        }
 
-.rating label {
-    font-size: 30px;
-    color: gray;
-    cursor: pointer;
-}
+        .rating label {
+            font-size: 30px;
+            color: gray;
+            cursor: pointer;
+        }
 
-.rating label:before {
-    content: "\2605"; /* Código unicode para estrela vazia */
-}
+        .rating label:before {
+            content: "\2605"; /* Código unicode para estrela vazia */
+        }
 
-.rating input:checked ~ label {
-    color: gold;
-}
+        .rating input:checked ~ label {
+            color: gold;
+        }
 
-.rating input:checked ~ label:before {
-    content: "\2605"; /* Código unicode para estrela preenchida */
-}
+        .rating input:checked ~ label:before {
+            content: "\2605"; /* Código unicode para estrela preenchida */
+        }
 
 
-.banner_header {
+        .banner_header {
             position: relative;
             width: 100%;
             height: 300px; /* Altura do banner */
@@ -311,7 +312,7 @@ button:active {
         .div-principal-esq-dir {
         width: 100%;
         height: 100px;
-        background-color: #198754;
+        background-color: #e9ecef;;
         border-radius: 40px;
         padding: 20px 20px 20px 20px;
         display: flex;
@@ -322,7 +323,7 @@ button:active {
         .div-principal-dir {
             width: auto; /* Use 48% para deixar algum espaço entre as duas divs */
             height: auto;
-            background-color: #e9ecef;
+            background-color: #198754;
             border-radius: 50px;
             overflow: hidden;
             display: flex;
@@ -352,7 +353,7 @@ button:active {
 
         .letra-div-principal-pacote {
             text-align: center;
-            
+            color: white;
             font-size: 15px;
         }
         .sub-titulo {
@@ -375,32 +376,32 @@ button:active {
         }
 
         #tela-de-carregamento {
-    display: flex;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #ffffff; /* Fundo branco */
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    text-align: center;
-}
+        display: flex;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgb(248, 255, 255); /* Fundo branco */
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        }
 
-.spinner {
-    border: 4px solid rgba(0, 0, 0, 0.1);
-    border-radius: 50%;
-    border-top: 4px solid #3498db;
-    width: 40px;
-    height: 40px;
-    animation: spin 1s linear infinite;
-    margin-bottom: 10px;
-}
+        .spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-radius: 50%;
+            border-top: 4px solid #3498db;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin-bottom: 10px;
+        }
 
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
 
 </style>
